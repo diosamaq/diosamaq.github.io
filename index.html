@@ -23,7 +23,7 @@
 <meta name="twitter:card" content="summary">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/gh/nexmoe/nexmoe.github.io@latest/css/style.css,npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/nexmoe/nexmoe.github.io@latest/lib/mdui_043tiny/css/mdui.css,gh/nexmoe/nexmoe.github.io@latest/lib/iconfont/iconfont.css" crossorigin>
   
-  <!--<link rel="stylesheet" href="/css/style.css?v=1596165327417">-->
+  <!--<link rel="stylesheet" href="/css/style.css?v=1596284360442">-->
 
   
 <meta name="generator" content="Hexo 4.2.1"></head>
@@ -49,7 +49,7 @@
         </a>
     </div>
     <div class="nexmoe-count">
-        <div><span>Articles</span>3</div>
+        <div><span>Articles</span>4</div>
         <div><span>Tags</span>0</div>
         <div><span>Categories</span>0</div>
     </div>
@@ -114,7 +114,7 @@
   <div class="nexmoe-widget-wrap">
     <h3 class="nexmoe-widget-title">Archive</h3>
     <div class="nexmoe-widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li></ul>
     </div>
   </div>
 
@@ -131,6 +131,142 @@
   <div id="nexmoe-content">
     <div class="nexmoe-primary">
         <section class="nexmoe-posts">
+    
+    <div class="nexmoe-post">
+        <a href="/2020/08/01/test04/">
+            
+                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 56.25%;"> 
+                    <img data-src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1594961743683&di=dcfbaa5081749a2b69069c76b4075000&imgtype=0&src=http%3A%2F%2Fimg1.qunliao.info%2Ffastdfs3%2FM00%2F67%2FFA%2FChOxM1ut89GAKZupAATvpoU81qo639.jpg" data-sizes="auto" alt="Spring Boot学习笔记（四）配置" class="lazyload">
+                    <h1>Spring Boot学习笔记（四）配置</h1>
+                </div>
+            
+        </a>
+
+        <div class="nexmoe-post-meta nexmoe-rainbow">
+            <a><i class="nexmoefont icon-calendar-fill"></i>2020年08月01日</a>
+            <a><i class="nexmoefont icon-areachart"></i>753 字</a>
+            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 3 分钟</a>
+        </div>
+
+        <article>
+            
+                <h2 id="一、配置文件"><a href="#一、配置文件" class="headerlink" title="一、配置文件"></a>一、配置文件</h2><h2 id="1、Spring-Boot的配置文件"><a href="#1、Spring-Boot的配置文件" class="headerlink" title="1、Spring Boot的配置文件"></a>1、Spring Boot的配置文件</h2><blockquote>
+<p>-Spring Boot使用一个全局的配置文件</p>
+<ul>
+<li>application.properties</li>
+<li>application.yml</li>
+</ul>
+<p>-配置文件放在<strong>src/main/resources</strong>目录或者<strong>类路径/config</strong>下</p>
+<p><strong>作用：修改Spring Boot的自动配置的默认值；</strong></p>
+<p>-.yml是YAML（YAML Ain’t Markup Language）语言文件，以数据为中心，比json、xml更适合做配置文件</p>
+<ul>
+<li><p><a href="http://www.yaml.org/" target="_blank" rel="noopener">http://www.yaml.org/</a> 参考语法规范</p>
+<p>YAML A Markup Language：是一个标记语言；</p>
+<p>YAML isn’t Markup Language：不是一个标记语言；</p>
+<p>标记语言：</p>
+<p>​    以前的配置文件大多使用的是 <strong>xxxx.xml</strong> 文件；</p>
+<p>TAML:</p>
+<pre><code class="yaml">server:
+ port: 8081</code></pre>
+<p>XML:</p>
+<pre><code class="xml">&lt;server&gt;
+   &lt;port&gt;8081&lt;/port&gt;
+&lt;/server&gt;</code></pre>
+</li>
+</ul>
+</blockquote>
+<h2 id="二、YAML语法"><a href="#二、YAML语法" class="headerlink" title="二、YAML语法"></a>二、YAML语法</h2><blockquote>
+<h3 id="1、YAML基本语法"><a href="#1、YAML基本语法" class="headerlink" title="1、YAML基本语法"></a>1、YAML基本语法</h3><p>​    <strong>key: value;</strong>表示一对键值对（空格必须要有）</p>
+<p>​    以<strong>空格</strong>的缩进来控制层级关系；只要是左对齐的一列数据，都是同一个层级的；</p>
+<pre><code class="yaml">server:
+   poert: 8081
+   path: /hello</code></pre>
+<p>​    属性和值都是大小写敏感的；</p>
+<h3 id="2、值的写法"><a href="#2、值的写法" class="headerlink" title="2、值的写法"></a>2、值的写法</h3><p>​    <strong>(1)字面量：普通的值(数字、字符串、布尔)</strong></p>
+<pre><code>    k: v;字面量直接来写；字符串默认不用加上引号；</code></pre><p>​        <strong>“ ”</strong>：双引号；会转义特殊字符，特殊字符最终只是普通的字符串数据；</p>
+<p>​        name：“zhangsan \n lisi” 输出为： zhangsan 换行 lisi；</p>
+<p>​        <strong>‘ ’</strong>：单引号；不会转义字符串里的特殊字符；特殊字符会作为本身想表示的意思；</p>
+<p>​        name：“zhangsan \n lisi” 输出为： zhangsna /n lisi；</p>
+<p>​    <strong>(2)对象、map(属性和值)    (键值对)：</strong></p>
+<p>​        k: v;在下一行写对象的属性和值的关系，注意缩进；</p>
+<p>​            对象还是k: v;的方式;</p>
+<pre><code class="yaml">friends:
+   lastName: zhangsan
+   age: 20</code></pre>
+<p>​        行内写法：</p>
+<pre><code class="yaml">friends: {lastName: zhangsan,age: 20}</code></pre>
+<p>​    <strong>(3)数组（List、Set）：</strong></p>
+<p>​    用<strong>- 值</strong>表示数组中的一个元素；</p>
+<pre><code class="yaml">pets: 
+- cat
+- dog
+- pig</code></pre>
+<p>​    行内写法：</p>
+<pre><code class="yaml">pets: {cat,dog,pig}</code></pre>
+</blockquote>
+<h2 id="三、配置文件注入"><a href="#三、配置文件注入" class="headerlink" title="三、配置文件注入"></a>三、配置文件注入</h2><p><strong>配置文件：</strong></p>
+<pre><code class="yaml">person:
+    lastName: zhangsan
+    age: 18
+    boss: false
+    birth: 2017/12/12
+    maps: {k1: v1,k2: 12}
+    lists:
+      - lisi
+      - jojo
+    dog:
+      name: 小白
+      age: 2</code></pre>
+<p><strong>javaBean：</strong></p>
+<pre><code class="java">/*
+* 将配置文件中配置的每一个属性的值，映射到这哥组件中
+* @ConfigurationProperties：告诉Spring Boot将本类中的所有属性和配置文件中相关的配置进行绑定
+* prefix = &quot;person&quot; : 配置文件中哪个下面的所有属性进行一一映射。
+*
+*
+* 只有这个组件是容器中的组件，才能提供功能。@Component将其加入到容器中；
+*/
+
+@Component
+@ConfigurationProperties(prefix = &quot;person&quot;)
+public class Person {
+    private String lastName;
+    private Integer age;
+    private Boolean boss;
+    private Date birth;
+
+    private Map&lt;String,Object&gt; maps;
+    private List&lt;Object&gt; lists;
+    private Dog dog;</code></pre>
+<p><strong>我们可以导入配置文件处理器，以后编写配置就有处理器了</strong></p>
+<pre><code class="xml"> &lt;!--导入配置文件处理器，配置文件进行绑定就会有提示--&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-configuration-processor&lt;/artifactId&gt;
+            &lt;optional&gt;true&lt;/optional&gt;
+        &lt;/dependency&gt;</code></pre>
+<p><strong>测试文件：</strong></p>
+<pre><code class="java">/*
+*SpringBoot单元测试
+* 可以在测试期间很方便地类似编码一样进行注入容器的功能；
+* */
+@SpringBootTest
+public class  SpringBoot02ConfigApplicationTests {
+
+    @Autowired
+    Person person;
+
+    @Test
+    void contextLoads() {
+        System.out.println(person);
+    }
+}</code></pre>
+<p><strong>测试结果：</strong></p>
+<p><img data-sizes="auto" data-src="C:%5CUsers%5C11041%5CDesktop%5C001.jpg" alt="001" class="lazyload"></p>
+
+            
+        </article>
+    </div>
     
     <div class="nexmoe-post">
         <a href="/2020/07/31/test03/">
@@ -369,7 +505,7 @@ public class HelloWorldController  {
   </div>
   <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js,gh/nexmoe/nexmoe.github.io@latest/js/app.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-<!--<script src="/js/app.js?v=1596165327418"></script>-->
+<!--<script src="/js/app.js?v=1596284360443"></script>-->
 
 
     <script src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
